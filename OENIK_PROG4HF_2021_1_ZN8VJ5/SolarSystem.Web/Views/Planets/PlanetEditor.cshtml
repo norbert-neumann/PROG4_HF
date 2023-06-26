@@ -1,0 +1,34 @@
+﻿@model SolarSystem.Web.Models.Planet
+
+<h2>Planet Editor</h2>
+
+
+@using (Html.BeginForm("Edit", "Planets"))
+{
+    @Html.ValidationSummary()
+
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.Hidden("editAction", ViewData["editAction"].ToString());
+
+    <div class="editor-label">@Html.LabelFor(m => m.Name)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Name)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.HostId)</div>
+    @Html.DropDownListFor(m => m.HostId, Model.Stars.Select(s => new SelectListItem(s.Name.ToString(), s.Id.ToString(), s.Id == Model.HostId)), null, null)
+
+    <div class="editor-label">@Html.LabelFor(m => m.Distance)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Distance)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Mass)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Mass)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Diameter)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Diameter)</div>
+
+    <div class="editor-label">@Html.LabelFor(m => m.Molecules)</div>
+    <div class="editor-field">@Html.EditorFor(m => m.Molecules)</div>
+
+    <input type="submit" value="SEND" />
+}

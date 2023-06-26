@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SolarSystem.Program</name>
+    </assembly>
+    <members>
+        <member name="T:SolarSystem.Program.App">
+            <summary>
+            This class is responsible for initializing each layer and
+            providing an interactive interface for the user.
+            Each logic function has a separate method here that formats and prints
+            the functions' results.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Program.App.Main">
+            <summary>
+            This is where the layers and the menus get initialized.
+            </summary>
+        </member>
+    </members>
+</doc>

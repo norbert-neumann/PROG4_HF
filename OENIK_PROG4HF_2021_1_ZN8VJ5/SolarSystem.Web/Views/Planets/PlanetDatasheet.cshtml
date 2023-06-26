@@ -1,0 +1,44 @@
+﻿@model SolarSystem.Web.Models.Planet
+
+@{
+    ViewData["Title"] = "PlanetDatasheet";
+}
+
+<h2>Datasheet of a Planet</h2>
+
+@Html.ActionLink("Back to the list", "Index")
+
+<table border="1">
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Id)</td>
+        <td>@Html.DisplayFor(m => m.Id)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Name)</td>
+        <td>@Html.DisplayFor(m => m.Name)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.HostId)</td>
+        <td>@Html.DisplayFor(m => m.HostId)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.IsHabitable)</td>
+        <td>@Html.DisplayFor(m => m.IsHabitable)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Distance)</td>
+        <td>@Html.DisplayFor(m => m.Distance)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Mass)</td>
+        <td>@Html.DisplayFor(m => m.Mass)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Diameter)</td>
+        <td>@Html.DisplayFor(m => m.Diameter)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Molecules)</td>
+        <td>@Html.DisplayFor(m => m.Molecules)</td>
+    </tr>
+</table>

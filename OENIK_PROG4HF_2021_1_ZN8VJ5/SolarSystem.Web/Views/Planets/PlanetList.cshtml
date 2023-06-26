@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SolarSystem.Web.Models.Planet>
+
+<h2>Planets List</h2>
+
+
+@if (Model.Count() == 0)
+{
+    <p>No data in the database!</p>
+}
+else
+{
+    <table border="1">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.First().Name)</th>
+            <th>Datasheet</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr style='background-color: @(item.IsHabitable ? "lightgreen" : "white");' >
+                <td>@Html.DisplayFor(m => item.Name)</td>
+                <td>@Html.ActionLink("SHOW", "Details", new { id = item.Id })</td>
+                <td>@Html.ActionLink("DELETE", "Remove", new { id = item.Id })</td>
+                <td>@Html.ActionLink("EDIT", "Edit", new { id = item.Id })</td>
+            </tr>
+        }
+    </table>
+}

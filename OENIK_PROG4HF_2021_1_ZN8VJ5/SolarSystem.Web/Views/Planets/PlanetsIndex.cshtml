@@ -1,0 +1,15 @@
+﻿@model SolarSystem.Web.Models.PlanetsViewModel
+
+@{
+    ViewData["Title"] = "Crud Index";
+}
+
+<h2>Planets Index</h2>
+
+<p style="color:red">
+    @TempData["editResult"]
+</p>
+
+@await Html.PartialAsync("PlanetEditor", Model.EditedPlanet)
+
+@await Html.PartialAsync("PlanetList", Model.ListOfPlanets)

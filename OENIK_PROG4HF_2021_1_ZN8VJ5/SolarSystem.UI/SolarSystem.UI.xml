@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SolarSystem.UI</name>
+    </assembly>
+    <members>
+        <member name="T:SolarSystem.UI.App">
+            <summary>
+            Interaction logic for App.xaml.
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.App.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.App"/> class.
+            Sets up ServiceLocator.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:SolarSystem.UI.BL.IEditorService">
+            <summary>
+            Edits an existing VM planet somehow.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.BL.IEditorService.EditPlanet(SolarSystem.UI.Data.VMPlanet)">
+            <summary>
+            Edits and existing VM planet.
+            </summary>
+            <param name="p">Planet to be modified.</param>
+            <returns>True if the modification was succesful, false otherwise.</returns>
+        </member>
+        <member name="T:SolarSystem.UI.BL.IPlanetLogic">
+            <summary>
+            Interface that implements all CRUD methods.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.BL.IPlanetLogic.AddPlanet(System.Collections.Generic.IList{SolarSystem.UI.Data.VMPlanet})">
+            <summary>
+            Adds a planet to the current collection.
+            </summary>
+            <param name="list">Viewmodel collection.</param>
+        </member>
+        <member name="M:SolarSystem.UI.BL.IPlanetLogic.ModPlanet(SolarSystem.UI.Data.VMPlanet)">
+            <summary>
+            Modifies a single planet's properties.
+            </summary>
+            <param name="planetToModify">Planet to be modified.</param>
+        </member>
+        <member name="M:SolarSystem.UI.BL.IPlanetLogic.DelPlanet(System.Collections.Generic.IList{SolarSystem.UI.Data.VMPlanet},SolarSystem.UI.Data.VMPlanet)">
+            <summary>
+            Deletes a planet from the VM collection.
+            </summary>
+            <param name="list">This is where te planet should be removed from.</param>
+            <param name="planet">Planet to be deleted.</param>
+        </member>
+        <member name="M:SolarSystem.UI.BL.IPlanetLogic.GetAllPlanets">
+            <summary>
+            Returns the planets from the database converted to VM planets.
+            </summary>
+            <returns>All planets from the Data layer.</returns>
+        </member>
+        <member name="M:SolarSystem.UI.BL.IPlanetLogic.GetAllHosts">
+            <summary>
+            Returns a unique list of host stars.
+            </summary>
+            <returns>List of host stars.</returns>
+        </member>
+        <member name="T:SolarSystem.UI.BL.VMPlanetLogic">
+            <summary>
+            Executes the CRUD operations on the VM collection, and syncs it with the Data kayer.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.UI.BL.VMPlanetLogic.editorService">
+            <summary>
+            Sercie used for modification.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.UI.BL.VMPlanetLogic.messengerService">
+            <summary>
+            Messaging service.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.UI.BL.VMPlanetLogic.logic">
+            <summary>
+            Reference to the Logic layer, which will execute the CRUD operation in the Data layer.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.BL.VMPlanetLogic.#ctor(SolarSystem.UI.BL.IEditorService,GalaSoft.MvvmLight.Messaging.IMessenger,SolarSystem.Logic.ICatalog)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.BL.VMPlanetLogic"/> class.
+            </summary>
+            <param name="service">Service for modification.</param>
+            <param name="messenger">Service for messaging.</param>
+            <param name="logic">Logic for database access.</param>
+        </member>
+        <member name="M:SolarSystem.UI.BL.VMPlanetLogic.AddPlanet(System.Collections.Generic.IList{SolarSystem.UI.Data.VMPlanet})">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.UI.BL.VMPlanetLogic.DelPlanet(System.Collections.Generic.IList{SolarSystem.UI.Data.VMPlanet},SolarSystem.UI.Data.VMPlanet)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.UI.BL.VMPlanetLogic.GetAllPlanets">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.UI.BL.VMPlanetLogic.ModPlanet(SolarSystem.UI.Data.VMPlanet)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.UI.BL.VMPlanetLogic.GetAllHosts">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.UI.Data.VMPlanet">
+            <summary>
+            Planet entity for the view model.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.Data.VMPlanet.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.Data.VMPlanet"/> class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.Data.VMPlanet.#ctor(SolarSystem.Data.Models.Planet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.Data.VMPlanet"/> class from a database object.
+            </summary>
+            <param name="dbPlanet">Source database object.</param>
+        </member>
+        <member name="P:SolarSystem.UI.Data.VMPlanet.Id">
+            <summary>
+            Unique database generated key for each planet entity.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.Data.VMPlanet.Name">
+            <summary>
+            Name of the planet.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.Data.VMPlanet.Distance">
+            <summary>
+            Distance from the host start in AU.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.Data.VMPlanet.Mass">
+            <summary>
+            Mass of the planet relative to Earth's mass.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.Data.VMPlanet.Diameter">
+            <summary>
+            Diameter of the given planet realtive to Earth's diameter.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.Data.VMPlanet.Molecules">
+            <summary>
+            String of found molecules separated by ",".
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.Data.VMPlanet.Host">
+            <summary>
+            Id of the planet's host star.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.Data.VMPlanet.IsHabitable">
+            <summary>
+            Checks if planet is inside it's host star's habitable zone.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.Data.VMPlanet.CopyFrom(SolarSystem.UI.Data.VMPlanet)">
+            <summary>
+            Generates a copy from an other instance.
+            </summary>
+            <param name="other">Instance whose properties should be copied from.</param>
+        </member>
+        <member name="M:SolarSystem.UI.Data.VMPlanet.AsDbPlanet">
+            <summary>
+            Copies this instance's properties to a database object.
+            </summary>
+            <returns>A database object with the same properties as this.</returns>
+        </member>
+        <member name="T:SolarSystem.UI.EditorWindow">
+            <summary>
+            Interaction logic for EditorWindow.xaml.
+            </summary>
+            <summary>
+            EditorWindow
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.EditorWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.EditorWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.EditorWindow.#ctor(SolarSystem.UI.Data.VMPlanet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.EditorWindow"/> class.
+            Creates a new window for editing a planet.
+            </summary>
+            <param name="newPlanet">Planet to be edited.</param>
+        </member>
+        <member name="M:SolarSystem.UI.EditorWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SolarSystem.UI.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SolarSystem.UI.MyIOC">
+            <summary>
+            This class extends SimpleIoc with IServiceLocator.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.MyIOC.Instance">
+            <summary>
+            Singleton instance(?).
+            </summary>
+        </member>
+        <member name="T:SolarSystem.UI.UI.BoolToBrushConverter">
+            <summary>
+            Converts a planet's isHabitable property into green or red (green->habitable, red->unhabitable).
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.UI.BoolToBrushConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.UI.UI.BoolToBrushConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.UI.UI.EditorServiceViaWindow">
+            <summary>
+            Implement editor service using EditorWindow.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.UI.EditorServiceViaWindow.EditPlanet(SolarSystem.UI.Data.VMPlanet)">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.UI.VM.EditorViewModel">
+            <summary>
+            VM for the editor window.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.VM.EditorViewModel.#ctor(SolarSystem.UI.BL.IPlanetLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.VM.EditorViewModel"/> class.
+            </summary>
+            <param name="logic">Connection to he buisness logic.</param>
+        </member>
+        <member name="M:SolarSystem.UI.VM.EditorViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.VM.EditorViewModel"/> class with zero parameters.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.VM.EditorViewModel.Planet">
+            <summary>
+            Planet which is currently edited.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.VM.EditorViewModel.Hosts">
+            <summary>
+            Collection of stars in the Data layer.
+            Since this WPF app only adds new planets but no stars we don't need to sync this.
+            </summary>
+        </member>
+        <member name="T:SolarSystem.UI.VM.MainViewModel">
+            <summary>
+            VM for the main window.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.UI.VM.MainViewModel.#ctor(SolarSystem.UI.BL.IPlanetLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.VM.MainViewModel"/> class.
+            </summary>
+            <param name="logic">Connection to he buisness logic.</param>
+        </member>
+        <member name="M:SolarSystem.UI.VM.MainViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.UI.VM.MainViewModel"/> class with zero parameters.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.VM.MainViewModel.AddCmd">
+            <summary>
+            Command pointing to Add operation in BL.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.VM.MainViewModel.ModCmd">
+            <summary>
+            Command pointing to Modify operation in BL.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.VM.MainViewModel.DelCmd">
+            <summary>
+            Command pointing to Delete operation in BL.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.VM.MainViewModel.AllCmd">
+            <summary>
+            Command pointing to GetAll operation in BL.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.VM.MainViewModel.Selected">
+            <summary>
+            Selected planet in the main window.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.UI.VM.MainViewModel.Planets">
+            <summary>
+            All planets.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['name_443',['Name',['../class_solar_system_1_1_data_1_1_models_1_1_planet.html#a3cd8f03b91e0dbc3d8aba5ec39a49d25',1,'SolarSystem.Data.Models.Planet.Name()'],['../class_solar_system_1_1_data_1_1_models_1_1_star.html#acf6d548b370866494a8582a6f012b194',1,'SolarSystem.Data.Models.Star.Name()'],['../class_solar_system_1_1_data_1_1_models_1_1_star_system.html#aa074ec96258baf78461092a71e1d6bad',1,'SolarSystem.Data.Models.StarSystem.Name()'],['../class_solar_system_1_1_u_i_1_1_data_1_1_v_m_planet.html#ac245e1094eec52934e5c659d0a66e61b',1,'SolarSystem.UI.Data.VMPlanet.Name()'],['../class_solar_system_1_1_web_1_1_models_1_1_planet.html#a5bdf2ac4582fb9fdc3477a6bcb280001',1,'SolarSystem.Web.Models.Planet.Name()'],['../class_solar_system_1_1_wpf_client_1_1_v_m_planet.html#aed75bba4fdf767d84a44efad8c3e4280',1,'SolarSystem.WpfClient.VMPlanet.Name()']]]
+];

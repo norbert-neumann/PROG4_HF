@@ -1,0 +1,39 @@
+﻿<Window x:Class="SolarSystem.UI.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SolarSystem.UI"
+        xmlns:data="clr-namespace:SolarSystem.Data.Models;assembly=SolarSystem.Data"
+        xmlns:vm="clr-namespace:SolarSystem.UI.VM"
+        mc:Ignorable="d"
+        Title="Planet Editor" Height="281" Width="259">
+    <Window.Resources>
+        <vm:EditorViewModel x:Key="VM" />
+        <DataTemplate x:Key="starTemplate" DataType="{x:Type data:Star}">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource VM}" Margin="0,0,10,7">
+
+        <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Distance" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+        <Label Content="Diameter" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
+        <Label Content="Mass" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top"/>
+        <Label Content="Molecules" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top"/>
+        <Label Content="Host Star" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top"/>
+
+        <TextBox Text="{Binding Planet.Name}" HorizontalAlignment="Left" Height="23" Margin="74,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox Text="{Binding Planet.Distance}" HorizontalAlignment="Left" Height="23" Margin="74,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Planet.Diameter}" HorizontalAlignment="Left" Height="23" Margin="74,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        <TextBox Text="{Binding Planet.Mass}" HorizontalAlignment="Left" Height="23" Margin="75,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox Text="{Binding Planet.Molecules}" HorizontalAlignment="Left" Height="23" Margin="75,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox ItemsSource="{Binding Hosts}" SelectedItem="{Binding Planet.Host}" ItemTemplate="{StaticResource starTemplate}" HorizontalAlignment="Left" Height="23" Margin="74,150,0,0"  VerticalAlignment="Top" Width="120"/>
+
+
+        <Button Content="OK" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Width="92" Click="Ok_Click" Height="30" />
+        <Button Content="CANCEL" HorizontalAlignment="Left" Margin="102,194,0,0" VerticalAlignment="Top" Width="90" Click="Cancel_Click" Height="30" />
+
+    </Grid>
+</Window>

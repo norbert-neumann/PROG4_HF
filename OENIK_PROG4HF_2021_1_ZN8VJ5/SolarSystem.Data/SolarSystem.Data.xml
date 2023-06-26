@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SolarSystem.Data</name>
+    </assembly>
+    <members>
+        <member name="T:SolarSystem.Data.Models.Planet">
+            <summary>
+            Represents a planet entity in the database.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.Id">
+            <summary>
+            Unique database generated key for each planet entity.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.Name">
+            <summary>
+            Name of the planet, required.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.Mass">
+            <summary>
+            Mass of the planet relative to Earth's mass.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.Distance">
+            <summary>
+            Distance from the host start in AU.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.Diameter">
+            <summary>
+            Diameter of the given planet realtive to Earth's diameter.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.Molecules">
+            <summary>
+            String of found molecules separated by ",". nullable.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.HostId">
+            <summary>
+            Id of the planet's host star.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.Host">
+            <summary>
+            Navigation property for the foreign key.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Planet.IsHabitable">
+            <summary>
+            Checks if planet is inside it's host star's habitable zone.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Data.Models.Planet.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Data.Models.Planet.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Data.Models.Planet.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Data.Models.Planet.CopyTo(SolarSystem.Data.Models.Planet)">
+            <summary>
+            Copies self's properties into another instance.
+            (Reflection does not work here...)
+            </summary>
+            <param name="p">Instance where the poperties should be copied into.</param>
+        </member>
+        <member name="T:SolarSystem.Data.Models.SolarSystemDbContext">
+            <summary>
+            Database object containing all three tables.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Data.Models.SolarSystemDbContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Data.Models.SolarSystemDbContext"/> class.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.SolarSystemDbContext.Systems">
+            <summary>
+            DbSet for Systems.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.SolarSystemDbContext.Stars">
+            <summary>
+            DbSet for Stars.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.SolarSystemDbContext.Planets">
+            <summary>
+            DbSet for Planets.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Data.Models.SolarSystemDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Data.Models.SolarSystemDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Data.Models.Star">
+            <summary>
+             Represents a star entity in the database.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Data.Models.Star.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Data.Models.Star"/> class.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.Id">
+            <summary>
+            Unique database generated key for each star entity.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.Name">
+            <summary>
+            Name of the star, all systems must have a name.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.Type">
+            <summary>
+            Spectral type of the star (B, A, F, G, K, M).
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.Temperature">
+            <summary>
+            Effective temperature of the star in Kelvin.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.Mass">
+            <summary>
+            Mass of the star, enumerated in terms of the Sun's mass.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.HabitableZone">
+            <summary>
+            Distance from the star where liquid water can exist.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.SystemId">
+            <summary>
+            Id of the system which this star is part of.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.System">
+            <summary>
+            Navigation poperty for this star's system.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.Star.Planets">
+            <summary>
+            Navigational property for the star's planets.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Data.Models.Star.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Data.Models.Star.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Data.Models.Star.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Data.Models.StarSystem">
+            <summary>
+            Represents a solar system entity in the database.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Data.Models.StarSystem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Data.Models.StarSystem"/> class.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.StarSystem.Id">
+            <summary>
+            Unique key for each system.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.StarSystem.Name">
+            <summary>
+            Name of the system, all systems must have this.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.StarSystem.Distance">
+            <summary>
+            Distance from the Sun in parsecs.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.StarSystem.Age">
+            <summary>
+            Age of the system in million years.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.StarSystem.AlternativeName">
+            <summary>
+            Alternative name of the system, usually this property in null.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.StarSystem.CatalogType">
+            <summary>
+            The type of astronomical cataloue used for naming the system.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Data.Models.StarSystem.Stars">
+            <summary>
+            Naviagation property for the system's stars. One-to-many relation.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Data.Models.StarSystem.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Data.Models.StellarType">
+            <summary>
+            All posible stellar types. These classes will behave differently in the simulation.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.O">
+            <summary>
+            Star where temperature is in [60k - 30k] Kelvin.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.B">
+            <summary>
+            Star where temperature is in [30k - 10k] Kelvin.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.A">
+            <summary>
+            Star where temperature is in [10k - 7,5k] Kelvin.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.F">
+            <summary>
+            Star where temperature is in [7,5k - 6k] Kelvin.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.G">
+            <summary>
+            Star where temperature is in [6k - 5k] Kelvin.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.K">
+            <summary>
+            Star where temperature is in [5k - 3,5k] Kelvin.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.M">
+            <summary>
+            Star where temperature is in [3,5k - 0k] Kelvin.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.D">
+            <summary>
+            White dwarf (stellar remnant).
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.RedGiant">
+            <summary>
+            Star which is in the red giant phase.
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.NeutronStar">
+            <summary>
+            Neutron star (stellar remnant).
+            </summary>
+        </member>
+        <member name="F:SolarSystem.Data.Models.StellarType.BlackHole">
+            <summary>
+            Black hole (stellar remnant).
+            </summary>
+        </member>
+    </members>
+</doc>

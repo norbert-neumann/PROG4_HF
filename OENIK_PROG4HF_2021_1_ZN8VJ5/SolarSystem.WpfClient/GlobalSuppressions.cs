@@ -1,0 +1,40 @@
+﻿// This file is used by Code Analysis to maintain SuppressMessage
+// attributes that are applied to this project.
+// Project-level suppressions either have no target or are given
+// a specific target and scoped to a namespace, type, member, etc.
+
+using System.Diagnostics.CodeAnalysis;
+
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1633:File should have header", Justification = "<Pending>", Scope = "namespace", Target = "~N:SolarSystem.WpfClient")]
+[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1404:Code analysis suppression should have justification", Justification = "<Pending>")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1633:File should have header", Justification = "<Pending>")]
+[assembly: SuppressMessage("Usage", "CA2234:Pass system uri objects instead of strings", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.ApiDeletePlanet(SolarSystem.WpfClient.VMPlanet)")]
+[assembly: SuppressMessage("Usage", "CA2234:Pass system uri objects instead of strings", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.ApiEditPlanet(SolarSystem.WpfClient.VMPlanet,System.Boolean)~System.Boolean")]
+[assembly: SuppressMessage("Usage", "CA2234:Pass system uri objects instead of strings", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.ApiGetAllPlanets~System.Collections.Generic.IReadOnlyCollection{SolarSystem.WpfClient.VMPlanet}")]
+[assembly: SuppressMessage("Usage", "CA2234:Pass system uri objects instead of strings", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.GetAllStars~System.Collections.Generic.List{SolarSystem.Data.Models.Star}")]
+[assembly: SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.SendMessage(System.Boolean)")]
+[assembly: SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.ApiDeletePlanet(SolarSystem.WpfClient.VMPlanet)")]
+[assembly: SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.ApiEditPlanet(SolarSystem.WpfClient.VMPlanet,System.Boolean)~System.Boolean")]
+[assembly: SuppressMessage("Design", "CA1063:Implement IDisposable Correctly", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.Dispose")]
+[assembly: SuppressMessage("Design", "CA1063:Implement IDisposable Correctly", Justification = "<Pending>", Scope = "type", Target = "~T:SolarSystem.WpfClient.MainLogic")]
+[assembly: SuppressMessage("Usage", "CA1816:Dispose methods should call SuppressFinalize", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.Dispose")]
+[assembly: SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>", Scope = "member", Target = "~M:SolarSystem.WpfClient.MainLogic.ApiEditPlanet(SolarSystem.WpfClient.VMPlanet,System.Boolean)~System.Boolean")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MainVM.AllPlanets")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MainVM.SelectedPlanet")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MainVM.AddCmd")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MainVM.DelCmd")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MainVM.EditorFunc")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MainVM.LoadCmd")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MainVM.ModCmd")]
+[assembly: SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MainVM.AllPlanets")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.MyIOC.Instance")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.Diameter")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.Distance")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.Host")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.Id")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.Mass")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.Molecules")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.Name")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.IsHabitable")]
+[assembly: SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.AllHosts")]
+[assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1623:Property summary documentation should match accessors", Justification = "<Pending>", Scope = "member", Target = "~P:SolarSystem.WpfClient.VMPlanet.AllHosts")]

@@ -1,0 +1,5 @@
+var dir_d355c32eb6374004807c958d7e0c54a8 =
+[
+    [ "net5.0", "dir_9ea6cd2baed17682305405532058b654.html", "dir_9ea6cd2baed17682305405532058b654" ],
+    [ "netcoreapp3.1", "dir_ea416371aeaf15a1ed38015495349049.html", "dir_ea416371aeaf15a1ed38015495349049" ]
+];

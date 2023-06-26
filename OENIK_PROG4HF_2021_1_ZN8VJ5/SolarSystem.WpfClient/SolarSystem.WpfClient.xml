@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SolarSystem.WpfClient</name>
+    </assembly>
+    <members>
+        <member name="T:SolarSystem.WpfClient.App">
+            <summary>
+            Interaction logic for App.xaml.
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.App.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.WpfClient.App"/> class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:SolarSystem.WpfClient.BoolToBrushConverter">
+            <summary>
+            Converts a planet's isHabitable property into green or red (green->habitable, red->unhabitable).
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.BoolToBrushConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.WpfClient.BoolToBrushConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.WpfClient.EditorWindow">
+            <summary>
+            Interaction logic for EditorWindow.xaml.
+            </summary>
+            <summary>
+            EditorWindow
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.EditorWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.WpfClient.EditorWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.EditorWindow.#ctor(SolarSystem.WpfClient.VMPlanet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.WpfClient.EditorWindow"/> class.
+            </summary>
+            <param name="planet">Planet instance to operate on.</param>
+        </member>
+        <member name="M:SolarSystem.WpfClient.EditorWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SolarSystem.WpfClient.IMainLogic">
+            <summary>
+            Lists all ApiCrud methods.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.IMainLogic.ApiGetAllPlanets">
+            <summary>
+            Calls the API and retursn all planets in db.
+            </summary>
+            <returns>All planets in db as VM planet.</returns>
+        </member>
+        <member name="M:SolarSystem.WpfClient.IMainLogic.ApiDeletePlanet(SolarSystem.WpfClient.VMPlanet)">
+            <summary>
+            Calls the API to delte a planet form the db.
+            </summary>
+            <param name="planet">Planet to be deleted.</param>
+        </member>
+        <member name="M:SolarSystem.WpfClient.IMainLogic.EditPlanet(SolarSystem.WpfClient.VMPlanet,System.Func{SolarSystem.WpfClient.VMPlanet,System.Boolean})">
+            <summary>
+            Edits a planet with the given edit function.
+            </summary>
+            <param name="planet">Planet to be edited.</param>
+            <param name="editor">Edit function that carries out the modification.</param>
+        </member>
+        <member name="T:SolarSystem.WpfClient.MainLogic">
+            <summary>
+            Main logic that calls the API.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.MainLogic.ApiGetAllPlanets">
+            <summary>
+            Calls the API and retursn all planets in db.
+            </summary>
+            <returns>All planets in db as VM planet.</returns>
+        </member>
+        <member name="M:SolarSystem.WpfClient.MainLogic.ApiDeletePlanet(SolarSystem.WpfClient.VMPlanet)">
+            <summary>
+            Calls the API to delte a planet form the db.
+            </summary>
+            <param name="planet">Planet to be deleted.</param>
+        </member>
+        <member name="M:SolarSystem.WpfClient.MainLogic.EditPlanet(SolarSystem.WpfClient.VMPlanet,System.Func{SolarSystem.WpfClient.VMPlanet,System.Boolean})">
+            <summary>
+            Edits a planet with the given edit function.
+            </summary>
+            <param name="planet">Planet to be edited.</param>
+            <param name="editor">Edit function that carries out the modification.</param>
+        </member>
+        <member name="M:SolarSystem.WpfClient.MainLogic.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.WpfClient.MainVM">
+            <summary>
+            View model for the main window.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.MainVM.#ctor(SolarSystem.WpfClient.IMainLogic)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.WpfClient.MainVM"/> class.
+            </summary>
+            <param name="logic">Logic to operate on.</param>
+        </member>
+        <member name="M:SolarSystem.WpfClient.MainVM.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.WpfClient.MainVM"/> class.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.MainVM.SelectedPlanet">
+            <summary>
+            Selected planet.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.MainVM.AllPlanets">
+            <summary>
+            All planets in db.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.MainVM.EditorFunc">
+            <summary>
+            Editor function.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.MainVM.AddCmd">
+            <summary>
+            Add relay command.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.MainVM.DelCmd">
+            <summary>
+            Delete relay command.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.MainVM.ModCmd">
+            <summary>
+            Update relay command.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.MainVM.LoadCmd">
+            <summary>
+            Load relay command.
+            </summary>
+        </member>
+        <member name="T:SolarSystem.WpfClient.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml.
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.WpfClient.MainWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SolarSystem.WpfClient.MyIOC">
+            <summary>
+            Custom simpleIoc implementation.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.MyIOC.Instance">
+            <summary>
+            Singleton instance(?).
+            </summary>
+        </member>
+        <member name="T:SolarSystem.WpfClient.VMPlanet">
+            <summary>
+            Planet entity for the view model.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.VMPlanet.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.WpfClient.VMPlanet"/> class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.VMPlanet.#ctor(SolarSystem.Data.Models.Planet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.WpfClient.VMPlanet"/> class from a database object.
+            </summary>
+            <param name="dbPlanet">Source database object.</param>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.Id">
+            <summary>
+            Unique database generated key for each planet entity.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.Name">
+            <summary>
+            Name of the planet.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.Distance">
+            <summary>
+            Distance from the host start in AU.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.Mass">
+            <summary>
+            Mass of the planet relative to Earth's mass.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.Diameter">
+            <summary>
+            Diameter of the given planet realtive to Earth's diameter.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.Molecules">
+            <summary>
+            String of found molecules separated by ",".
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.Host">
+            <summary>
+            Id of the planet's host star.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.IsHabitable">
+            <summary>
+            Checks if planet is inside it's host star's habitable zone.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.WpfClient.VMPlanet.AllHosts">
+            <summary>
+            List of all stars.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.WpfClient.VMPlanet.CopyFrom(SolarSystem.WpfClient.VMPlanet)">
+            <summary>
+            Generates a copy from an other instance.
+            </summary>
+            <param name="other">Instance whose properties should be copied from.</param>
+        </member>
+        <member name="M:SolarSystem.WpfClient.VMPlanet.AsDbPlanet">
+            <summary>
+            Copies this instance's properties to a database object.
+            </summary>
+            <returns>A database object with the same properties as this.</returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

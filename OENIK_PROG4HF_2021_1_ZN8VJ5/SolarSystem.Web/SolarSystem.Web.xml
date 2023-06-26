@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SolarSystem.Web</name>
+    </assembly>
+    <members>
+        <member name="T:SolarSystem.Web.Controllers.HomeController">
+            <summary>
+            Home controller.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{SolarSystem.Web.Controllers.HomeController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Web.Controllers.HomeController"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.HomeController.Index">
+            <summary>
+            GET index method.
+            </summary>
+            <returns>Main view.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.HomeController.Privacy">
+            <summary>
+            GET index method.
+            </summary>
+            <returns>Main view.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.HomeController.Error">
+            <summary>
+            Calls error view.
+            </summary>
+            <returns>Error viewmodel.</returns>
+        </member>
+        <member name="T:SolarSystem.Web.Controllers.PlanetsApiController">
+            <summary>
+            API CRUD controller.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsApiController.#ctor(SolarSystem.Logic.ICatalog,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Web.Controllers.PlanetsApiController"/> class.
+            </summary>
+            <param name="logic">Logic to operate on.</param>
+            <param name="mapper">Web.Planet -> Data.Planet mapper.</param>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsApiController.GetAll">
+            <summary>
+            Returns all planets in the db as Web.Planet.
+            </summary>
+            <returns>All present planets in the db.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsApiController.GetAllStars">
+            <summary>
+            Returns all stars form the db. This is used when the user selects a star.
+            </summary>
+            <returns>All stars present in db.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsApiController.DeleteOnePlanet(System.Int32)">
+            <summary>
+            Deletes one planet from the db.
+            </summary>
+            <param name="id">Id of the planet that needs to be deleted.</param>
+            <returns>ApiResult - true if the operation was successful.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsApiController.AddOnePlanet(SolarSystem.Web.Models.Planet)">
+            <summary>
+            Adds a new planet to the database.
+            </summary>
+            <param name="planet">Planet that needs to be added to the db.</param>
+            <returns>ApiResult-true if the operation was succesful.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsApiController.UpdateOnePlanet(SolarSystem.Web.Models.Planet)">
+            <summary>
+            Changes an existing planet's properties.
+            </summary>
+            <param name="planet">Changed planet instance.</param>
+            <returns>ApiResult-true if the operation was successful.</returns>
+        </member>
+        <member name="T:SolarSystem.Web.Controllers.PlanetsController">
+            <summary>
+            Controller for Planets page.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsController.#ctor(SolarSystem.Logic.ICatalog,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Web.Controllers.PlanetsController"/> class.
+            </summary>
+            <param name="logic">Interaction logic with the database.</param>
+            <param name="mapper">Data.Planet to Web.Planet mapper.</param>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsController.Index">
+            <summary>
+            GET: index page.
+            </summary>
+            <returns>PlanetsIndex view.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsController.Details(System.Int32)">
+            <summary>
+            GET for planet datasheet.
+            </summary>
+            <param name="id">Id of the planet.</param>
+            <returns>PlanetDatasheet view.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsController.Remove(System.Int32)">
+            <summary>
+            Removes a planet from the database.
+            </summary>
+            <param name="id">Id of the planet.</param>
+            <returns>PlanetsIndex view.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsController.Edit(System.Int32)">
+            <summary>
+            GET
+            Edits a planet in the database.
+            </summary>
+            <param name="id">Id of the planet.</param>
+            <returns>PlanetsIndex view.</returns>
+        </member>
+        <member name="M:SolarSystem.Web.Controllers.PlanetsController.Edit(SolarSystem.Web.Models.Planet,System.String)">
+            <summary>
+            POST
+            Edits a planet in the database.
+            </summary>
+            <param name="planet">New or modified planet.</param>
+            <param name="editAction">Indicates whether the planet should be added or updated.</param>
+            <returns>PlanetsIndex view.</returns>
+        </member>
+        <member name="T:SolarSystem.Web.Models.ApiResult">
+            <summary>
+            Extendable result class.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.ApiResult.OperationResult">
+            <summary>
+            Indicates whether or not the given operation was successful.
+            </summary>
+        </member>
+        <member name="T:SolarSystem.Web.Models.ErrorViewModel">
+            <summary>
+            Error VM.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.ErrorViewModel.RequestId">
+            <summary>
+            .
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            .
+            </summary>
+        </member>
+        <member name="T:SolarSystem.Web.Models.MapperFactory">
+            <summary>
+            Mappar factory for Data.Planet to Web.Planet conversion.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Web.Models.MapperFactory.CreateMapper">
+            <summary>
+            Creates a mapper.
+            </summary>
+            <returns>New Data.Planet to Web.Planet mapper.</returns>
+        </member>
+        <member name="T:SolarSystem.Web.Models.Planet">
+            <summary>
+            Planet form model.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.Id">
+            <summary>
+            Planet's unique id in the DB.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.Name">
+            <summary>
+            Planet's name.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.Mass">
+            <summary>
+            Planet's mass.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.Distance">
+            <summary>
+            Planet's distance to it's host..
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.Diameter">
+            <summary>
+            Planet's diameter.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.Molecules">
+            <summary>
+            Planet's molecules.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.HostId">
+            <summary>
+            Planet's host's id..
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.Host">
+            <summary>
+            Planet's host.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.IsHabitable">
+            <summary>
+            Boolean indicating whether the planet is habitable or not.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.Planet.Stars">
+            <summary>
+            Collection of all available stars. These are the host candidates.
+            </summary>
+        </member>
+        <member name="T:SolarSystem.Web.Models.PlanetsViewModel">
+            <summary>
+            Planet view model containg the currently edited planet, list of all planets in the DB.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.PlanetsViewModel.EditedPlanet">
+            <summary>
+            Currently edited planet.
+            </summary>
+        </member>
+        <member name="P:SolarSystem.Web.Models.PlanetsViewModel.ListOfPlanets">
+            <summary>
+            List of all planets in the DB.
+            </summary>
+        </member>
+        <member name="T:SolarSystem.Web.Program">
+            <summary>
+            Program :).
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Web.Program.Main(System.String[])">
+            <summary>
+            Main method.
+            </summary>
+            <param name="args">Arguments.</param>
+        </member>
+        <member name="M:SolarSystem.Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            .
+            </summary>
+            <param name="args">Arguments.</param>
+            <returns>IHostBuilder.</returns>
+        </member>
+        <member name="T:SolarSystem.Web.Startup">
+            <summary>
+            Startup :).
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Web.Startup"/> class.
+            </summary>
+            <param name="configuration">I have no idea its not my code ffs.</param>
+        </member>
+        <member name="P:SolarSystem.Web.Startup.Configuration">
+            <summary>
+            .
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Services such as IoC container.</param>
+        </member>
+        <member name="M:SolarSystem.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">.</param>
+            <param name="env">..</param>
+        </member>
+    </members>
+</doc>

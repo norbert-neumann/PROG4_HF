@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SolarSystem.Logic</name>
+    </assembly>
+    <members>
+        <member name="T:SolarSystem.Logic.Catalog">
+            <summary>
+            This class adds, gets, and removes entities from the repository.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.#ctor(SolarSystem.Repository.IStarSystemRepository,SolarSystem.Repository.IStarRepository,SolarSystem.Repository.IPlanetRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Logic.Catalog"/> class.
+            </summary>
+            <param name="systemRepo">Connection to StarSystems table.</param>
+            <param name="starRepo">Connection to Stars table.</param>
+            <param name="planetRepo">Connection to Planets table.</param>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.AddPlanet(System.String,System.Single,System.Single,System.Single,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.AddStar(System.String,SolarSystem.Data.Models.StellarType,System.Single,System.Single,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.AddStarSystem(System.String,System.Single,System.Single,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.GetOnePlanet(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.GetOneStar(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.GetOneStarSystem(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.GetAllStarSystems">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.GetAllStars">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.GetAllPlanets">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.RemovePlanet(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.RemoveStar(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.RemoveStarSystem(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Catalog.UpdatePlanet(SolarSystem.Data.Models.Planet)">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Logic.ICatalog">
+            <summary>
+            Every class that implements this interface should be responsible for
+            adding, getting, and removing entities from the Data layer.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.AddStarSystem(System.String,System.Single,System.Single,System.String,System.String)">
+            <summary>
+            Adds a new star system object to Data layer.
+            </summary>
+            <param name="name">Solar system's name.</param>
+            <param name="distance">Solar system's distance from Sun.</param>
+            <param name="age">Solar system's age in million years.</param>
+            <param name="altName">Solar system's alternative name.</param>
+            <param name="catalogType">Solar system's catalog type.</param>
+            <returns>Newly created solar system's id.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.AddStar(System.String,SolarSystem.Data.Models.StellarType,System.Single,System.Single,System.Int32)">
+            <summary>
+            Adds new star to Data layer.
+            </summary>
+            <param name="name">Star's name.</param>
+            <param name="type">Star's stellar type.</param>
+            <param name="temp">Star's temperatury in 1000 Kelvin.</param>
+            <param name="mass">Star's mass relative to Sun's mass.</param>
+            <param name="systemId">Solar system's id where this star belongs.</param>
+            <returns>Newly added star's id.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.AddPlanet(System.String,System.Single,System.Single,System.Single,System.String,System.Int32)">
+            <summary>
+            Adds new planet to Data layer.
+            </summary>
+            <param name="name">Planet's name.</param>
+            <param name="mass">Planet's mass relative to Earth's mass.</param>
+            <param name="distance">Planet's distance from it's host star.</param>
+            <param name="diameter">Planet's diameter realtive to Earth's.</param>
+            <param name="molecules">Molecules found on this planet.</param>
+            <param name="hostId">Planet's host star's id.</param>
+            <returns>Newly added planet's id.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.UpdatePlanet(SolarSystem.Data.Models.Planet)">
+            <summary>
+            Syncs a planet's properties with a given instance.
+            </summary>
+            <param name="updated">The exisiting planet should have this properites.</param>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.GetOneStarSystem(System.Int32)">
+            <summary>
+            Gets a StarSystem entity.
+            </summary>
+            <param name="id">Entity's id.</param>
+            <returns>A StarSystem object, if the given id exists in db, null otherwise.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.GetOneStar(System.Int32)">
+            <summary>
+            Gets a Star entity.
+            </summary>
+            <param name="id">Entity's id.</param>
+            <returns>A Star object, if the given id exists in db, null otherwise.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.GetOnePlanet(System.Int32)">
+            <summary>
+            Gets a Planet entity.
+            </summary>
+            <param name="id">Entity's id.</param>
+            <returns>A Planet object, if the given id exists in db, null otherwise.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.GetAllStarSystems">
+            <summary>
+            Gets every Star System entity from the Data layer.
+            </summary>
+            <returns>Every StarSystem entity.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.GetAllStars">
+            <summary>
+            Gets every Star entity from the Data layer.
+            </summary>
+            <returns>Every Star entity.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.GetAllPlanets">
+            <summary>
+            Gets every Planet entity from the Data layer.
+            </summary>
+            <returns>Every Planet entity.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.RemoveStarSystem(System.Int32)">
+            <summary>
+            Removes the given star system if it's in the database.
+            </summary>
+            <param name="id">Star system's id to remove.</param>
+            <returns>True if the given entity was succesfully removed, false if it's not in database.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.RemoveStar(System.Int32)">
+            <summary>
+            Removes the given star if it's in the database.
+            </summary>
+            <param name="id">Star's id to remove.</param>
+            <returns>True if the given entity was succesfully removed, false if it's not in database.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.ICatalog.RemovePlanet(System.Int32)">
+            <summary>
+            Removes the given planet if it's in the database.
+            </summary>
+            <param name="id">Planet's id to remove.</param>
+            <returns>True if the given entity was succesfully removed, false if it's not in database.</returns>
+        </member>
+        <member name="T:SolarSystem.Logic.IObservatory">
+            <summary>
+            List of queries that is about a planet's habitibility.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.IObservatory.GetHabitablePlanets">
+            <summary>
+            Checks if a given planet is inside it's host star's habitable zone.
+            </summary>
+            <returns>List of all habitable planets.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.IObservatory.GetHabitablePlanetsAsync">
+            <summary>
+            Checks if a given planet is inside it's host star's habitable zone (async version).
+            </summary>
+            <returns>Task that returns a list of all habitable planets.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.IObservatory.GetSuperhabitablePlanets">
+            <summary>
+            Checks if a given planet is inside it's host star's habitable zone
+            and water exsists on that planet..
+            </summary>
+            <returns>List of all superhabitable planets.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.IObservatory.GetStarsWithManyHabitablePlanets">
+            <summary>
+            Checks if a star has more then one habitable planet.
+            </summary>
+            <returns>List of stars that have more then one habitable planet.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.IObservatory.NearestHabitableStar">
+            <summary>
+            Finds the nearest star that has atleast one habitable planet.
+            If there are more then one habitable star with the same distance
+            then the star with the smaller Id gets to be the nearest star.
+            </summary>
+            <returns>Nearest habitable planet's star.</returns>
+        </member>
+        <member name="T:SolarSystem.Logic.ListResult">
+            <summary>
+            Result class that encapsulates a System-Star-Planet triplet.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.ListResult.#ctor(SolarSystem.Data.Models.StarSystem,System.Collections.Generic.IList{SolarSystem.Data.Models.Star},System.Collections.Generic.IList{System.Collections.Generic.ICollection{SolarSystem.Data.Models.Planet}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Logic.ListResult"/> class.
+            </summary>
+            <param name="system">StarSystem object.</param>
+            <param name="stars">Star object belonging to the given star systen.</param>
+            <param name="planets">Planets orbiting these stars.</param>
+        </member>
+        <member name="M:SolarSystem.Logic.ListResult.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Logic.Observatory">
+            <summary>
+            Implements IObservatory interface with eager loading.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Observatory.#ctor(SolarSystem.Repository.IStarSystemRepository,SolarSystem.Repository.IStarRepository,SolarSystem.Repository.IPlanetRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Logic.Observatory"/> class.
+            </summary>
+            <param name="systemRepo">Connection to StarSystems table.</param>
+            <param name="starRepo">Connection to Stars table.</param>
+            <param name="planetRepo">Connection to Planets table.</param>
+        </member>
+        <member name="M:SolarSystem.Logic.Observatory.GetHabitablePlanets">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Observatory.GetStarsWithManyHabitablePlanets">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Observatory.GetSuperhabitablePlanets">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Observatory.GetHabitablePlanetsAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.Observatory.NearestHabitableStar">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Logic.Simulation">
+            <summary>
+            This class is responsible for evolving stars over time.
+            A star has 3 phases:
+            - main-sequence
+            - red giant
+            - stellar remnant
+            Each star has a change to switch phases depending on the star's properties
+            and the simulation's direction (we can simulate both forward and backward in time).
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Simulation.#ctor(SolarSystem.Repository.IStarRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Logic.Simulation"/> class.
+            </summary>
+            <param name="repo">Connection to Data layer.</param>
+        </member>
+        <member name="M:SolarSystem.Logic.Simulation.RunForward(System.Int32)">
+            <summary>
+            Runs the simulation forward.
+            </summary>
+            <param name="dt">Time step size.</param>
+        </member>
+        <member name="M:SolarSystem.Logic.Simulation.RunBackward(System.Int32)">
+            <summary>
+            Runs the simulation backward.
+            </summary>
+            <param name="dt">Time step size.</param>
+        </member>
+        <member name="T:SolarSystem.Logic.StarWithDistance">
+            <summary>
+            Helper class that encapsulates a star with it's distance to the Sun.
+            (By default the distance is stored in StarSystem).
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.StarWithDistance.#ctor(SolarSystem.Data.Models.Star,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Logic.StarWithDistance"/> class.
+            </summary>
+            <param name="star">Star object.</param>
+            <param name="distance">Star's distance to Sun.</param>
+        </member>
+        <member name="P:SolarSystem.Logic.StarWithDistance.Star">
+            <summary>
+            Gets this.star.
+            After sorting the stars we will use this to get the closest habitable star.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.StarWithDistance.CompareTo(System.Object)">
+            <summary>
+            Compares to stars by their distance.
+            </summary>
+            <param name="obj">Other star :).</param>
+            <returns>1, if this star is closer then the other.</returns>
+        </member>
+        <member name="M:SolarSystem.Logic.StarWithDistance.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.StarWithDistance.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Logic.StarWithDistance.ToString">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

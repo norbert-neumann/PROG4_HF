@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SolarSystem.Logic.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:SolarSystem.Logic.Tests.LogicTests">
+            <summary>
+            Contains all tests done on Logic layer.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestAddPlanet">
+            <summary>
+            Tests if we add new entity then we get back it's id.
+            Add method should only run once.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestRemoveStar">
+            <summary>
+            Tests that Remove method only runs once.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestUpdateStar_TestSimulationRunForward">
+            <summary>
+            During simulation stars can change type, mass, temperature. There is a random factor
+            to that change, but with the given parameters the transition should always happen.
+            We will simulation 2 stars. Each star has 2 transitions, so there should be 4 transitions in total.
+            repo.ChangeType gets called when a transition happens, so repo.ChangeType should run exactly 4 times.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestUpdateStar_TestSimulationRunBackward">
+            <summary>
+            This test is the same as TestSimulationRunForward() but it is testing Simulation.RunBackward().
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestGetOneStarSystem">
+            <summary>
+            Tests that GetOne only runs one.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestGetAllStars">
+            <summary>
+            Tests if GetAllStars really returns all entities from the repo.
+            And it only gets called once.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestGetHabitablePlanets">
+            <summary>
+            Tests if GetHabitablePlanets() returns the correct results.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestGetSuperhabitablePlanets">
+            <summary>
+            Tests if GetSuperhabitablePlanets() returns the correct results.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestGetStarsWithManyHabitablePlanets">
+            <summary>
+            Tests if GetStarsWithManyHabitablePlanets() returns the correct results.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestGetNearestHabitableStar">
+            <summary>
+            Tests if NearestHabitableStar() returns the correct results.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.TestNearestHabitableStar_WhenThereAreTwoStarsWithTheSameDistance">
+            <summary>
+            This method tests what happens when there are more then one habitable stars with the same distance.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Logic.Tests.LogicTests.CreateLogic">
+            <summary>
+            Creates logic with mocked repos for testing methods in IObservatory.
+            </summary>
+            <returns>IObservatory implementation with mocked repositories.</returns>
+        </member>
+    </members>
+</doc>

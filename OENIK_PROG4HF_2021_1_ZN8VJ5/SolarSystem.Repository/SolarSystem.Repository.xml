@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SolarSystem.Repository</name>
+    </assembly>
+    <members>
+        <member name="T:SolarSystem.Repository.BaseRepository`1">
+            <summary>
+            Abstract class that implements all generic CRUD operations.
+            </summary>
+            <typeparam name="T">Entity type.</typeparam>
+        </member>
+        <member name="M:SolarSystem.Repository.BaseRepository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Repository.BaseRepository`1"/> class.
+            </summary>
+            <param name="ctx">Data layer's context.</param>
+        </member>
+        <member name="P:SolarSystem.Repository.BaseRepository`1.Ctx">
+            <summary>
+            Refernce to data layer's context.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Repository.BaseRepository`1.GetAll">
+            <summary>
+            Returns all entities from the context.
+            </summary>
+            <returns>Collection of entities as IQueryable that can be built into an expression tree.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.BaseRepository`1.GetAllAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.BaseRepository`1.GetOne(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.BaseRepository`1.Remove(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Repository.IPlanetRepository">
+            <summary>
+            Adds update functionalities to Planet entity.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Repository.IPlanetRepository.Add(System.String,System.Single,System.Single,System.Single,System.String,System.Int32)">
+            <summary>
+            Adds a new planet object to data layer.
+            </summary>
+            <param name="name">Planet's name.</param>
+            <param name="mass">Planet's mass.</param>
+            <param name="distance">Planet's distance..</param>
+            <param name="diameter">Planet's diameter.</param>
+            <param name="molecules">Molecules found on planet.</param>
+            <param name="hostId">Star's id which this planet orbits.</param>
+            <returns>Newly created planet's id.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IPlanetRepository.AddMolecules(System.Int32,System.String)">
+            <summary>
+            Adds newly found molecules to the given Planet.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <param name="molecules">New molecule(s).</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IPlanetRepository.ChangeMass(System.Int32,System.Single)">
+            <summary>
+            Allows Planet's mass to be updated.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <param name="updatedMass">Planet's updated mass.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IPlanetRepository.Update(SolarSystem.Data.Models.Planet)">
+            <summary>
+            Syncs a planet's properties with a given instance.
+            </summary>
+            <param name="updated">The exisiting planet should have this properites.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IPlanetRepository.InHabitableZone(System.Int32,System.Single)">
+            <summary>
+            Computes if the given planet is inside it's host star's habitable zone.
+            </summary>
+            <param name="id">Id of the planet.</param>
+            <param name="zone">Planet's host star's habitable zone.</param>
+            <returns>True if the planet's distance is not less then zone * 95%
+            and not more then zone * 105%.</returns>
+        </member>
+        <member name="T:SolarSystem.Repository.IRepository`1">
+            <summary>
+            Generic interface for all CRUD operations except update.
+            </summary>
+            <typeparam name="T">Generic entity type.</typeparam>
+        </member>
+        <member name="M:SolarSystem.Repository.IRepository`1.GetOne(System.Int32)">
+            <summary>
+            Gets the entity by it's id.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <returns>Entity object.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IRepository`1.GetAll">
+            <summary>
+            Returns all elements in the given DbSet.
+            </summary>
+            <returns>IQueryable expression tree.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IRepository`1.Remove(System.Int32)">
+            <summary>
+            Removes entity if it's in the database.
+            </summary>
+            <param name="id">Entity's id to remove.</param>
+            <returns>True if the given entity was succesfully removed, false if it's not in database.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IRepository`1.GetAllAsync">
+            <summary>
+            Returns all elements in the given DbSet asynchronously.
+            </summary>
+            <returns>A task that returns a list of entities.</returns>
+        </member>
+        <member name="T:SolarSystem.Repository.IStarRepository">
+            <summary>
+            Adds update functionalities to Star class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.Add(System.String,SolarSystem.Data.Models.StellarType,System.Single,System.Single,System.Int32)">
+            <summary>
+            Adds a new Star instance to Data layer.
+            </summary>
+            <param name="name">Name of star.</param>
+            <param name="type">Stellar type of star.</param>
+            <param name="temp">Star's temperature.</param>
+            <param name="mass">Star's mass.</param>
+            <param name="systemId">Id of the StarSystem object, where this instance belongs.</param>
+            <returns>Newly created instance's id.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.ChangeType(System.Int32,SolarSystem.Data.Models.StellarType)">
+            <summary>
+            Changes Star's type.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <param name="newType">Star's updated type.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.ChangeMass(System.Int32,System.Single)">
+            <summary>
+            Allows Star's mass to be updated.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <param name="updatedMass">Star's updated mass.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.ChangeTemperature(System.Int32,System.Single)">
+            <summary>
+            Allows Star's mass to be updated.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <param name="tempDelta">Star's current temperature will be multiplied with this number.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.UpdateHabitableZone(System.Int32)">
+            <summary>
+            Recomputes the habitable zone of the given star by it's temperature.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.GetPlanets(System.Int32)">
+            <summary>
+            Returns all planets which orbit this star.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <returns>Collection of the star's planets.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.IsMainSequence(SolarSystem.Data.Models.Star)">
+            <summary>
+            Decides if a star is a main sequence star.
+            Main sequence stars: O, B, A, F, O, K, M.
+            </summary>
+            <param name="star">Star entity.</param>
+            <returns>Returns true if a star is a main sequence star.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.IsStellarRemnant(SolarSystem.Data.Models.Star)">
+            <summary>
+            Decides if a star is a stellar remnant.
+            Stellar remnant if type = D, NeutronStar, BlackHole.
+            </summary>
+            <param name="star">Star entity.</param>
+            <returns>Returns true if a star is a stellar remnant.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarRepository.InRedGiantPhase(SolarSystem.Data.Models.Star)">
+            <summary>
+            Every star has a transition from main-sequence to stellar remnant.
+            During this transition the star is in red giant phase.
+            This methods decides if the star is in red giant phase.
+            </summary>
+            <param name="star">Star entity..</param>
+            <returns>True if star is in red giant phase.</returns>
+        </member>
+        <member name="T:SolarSystem.Repository.IStarSystemRepository">
+            <summary>
+            Adds update functionalities to StarSystem class.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarSystemRepository.Add(System.String,System.Single,System.Single,System.String,System.String)">
+            <summary>
+            Adds a new StarSystem instance to Data layer.
+            </summary>
+            <param name="name">Star System's name.</param>
+            <param name="distance">Star System's from Sun.</param>
+            <param name="age">Star System's age.</param>
+            <param name="altName">Star System's alternative name.</param>
+            <param name="catalogType">Star System's catalog type.</param>
+            <returns>Newly created star system's id.</returns>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarSystemRepository.AddAlternativeName(System.Int32,System.String)">
+            <summary>
+            Adds a non catalouge based name to the given star system.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <param name="altName">Name to be added to alternative names.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarSystemRepository.UpdateAge(System.Int32,System.Single)">
+            <summary>
+            Updates the star system's age.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <param name="age">Star systems's updated age.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.IStarSystemRepository.GetStars(System.Int32)">
+            <summary>
+            Returns all stars which are part of this system.
+            </summary>
+            <param name="id">Entity's primary key.</param>
+            <returns>Collection of the system's stars.</returns>
+        </member>
+        <member name="T:SolarSystem.Repository.PlanetRepository">
+            <summary>
+            Contains all functionalities for Planet inherited from generic repository, and IPlanetRepo interface.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Repository.PlanetRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Repository.PlanetRepository"/> class.
+            </summary>
+            <param name="ctx">Database object.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.PlanetRepository.Add(System.String,System.Single,System.Single,System.Single,System.String,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.PlanetRepository.AddMolecules(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.PlanetRepository.ChangeMass(System.Int32,System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.PlanetRepository.GetOne(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.PlanetRepository.InHabitableZone(System.Int32,System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.PlanetRepository.Remove(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.PlanetRepository.Update(SolarSystem.Data.Models.Planet)">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Repository.StarRepository">
+            <summary>
+            Contains all functionalities for Star inherited from generic repository, and IStarRepo interface.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Repository.StarRepository"/> class.
+            </summary>
+            <param name="ctx">Database object.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.Add(System.String,SolarSystem.Data.Models.StellarType,System.Single,System.Single,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.ChangeMass(System.Int32,System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.ChangeTemperature(System.Int32,System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.ChangeType(System.Int32,SolarSystem.Data.Models.StellarType)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.GetOne(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.GetPlanets(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.InRedGiantPhase(SolarSystem.Data.Models.Star)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.IsMainSequence(SolarSystem.Data.Models.Star)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.IsStellarRemnant(SolarSystem.Data.Models.Star)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.Remove(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarRepository.UpdateHabitableZone(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:SolarSystem.Repository.StarSystemRepository">
+            <summary>
+            Contains all functionalities for StarSystem inherited from generic repository, and IStarSystemRepo interface.
+            </summary>
+        </member>
+        <member name="M:SolarSystem.Repository.StarSystemRepository.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SolarSystem.Repository.StarSystemRepository"/> class.
+            </summary>
+            <param name="ctx">Database object.</param>
+        </member>
+        <member name="M:SolarSystem.Repository.StarSystemRepository.Add(System.String,System.Single,System.Single,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarSystemRepository.AddAlternativeName(System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarSystemRepository.GetOne(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarSystemRepository.GetStars(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarSystemRepository.Remove(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:SolarSystem.Repository.StarSystemRepository.UpdateAge(System.Int32,System.Single)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
